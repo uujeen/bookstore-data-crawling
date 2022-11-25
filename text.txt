@@ -1,0 +1,6 @@
+#tabRoot > div.view_type_list.switch_prod_wrap > ol:nth-child(1)
+#tabRoot > div.view_type_list.switch_prod_wrap > ol:nth-child(3)
+
+#tabRoot > div.view_type_list.switch_prod_wrap > ol:nth-child(1) > li:nth-child(1)
+
+#tabRoot > div.view_type_list.switch_prod_wrap > ol:nth-child(1) > li:nth-child(1) > div.prod_area.horizontal > div.prod_info_box > a

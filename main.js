@@ -1,5 +1,3 @@
-import {page} from "./page.js";
-
 const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 const fs = require("fs");
@@ -31,15 +29,19 @@ async function main() {
   // #tabRoot > div.view_type_list.switch_prod_wrap > ol:nth-child(1) > li:nth-child(1) > div.prod_area.horizontal > div.prod_info_box > a
   const $ = cheerio.load(body);
   const list = $(
-    '#tabRoot > div.view_type_list.switch_prod_wrap > ol:nth-child(1) > li > div.prod_area.horizontal > div.prod_info_box'
+    '#tabRoot > div.view_type_list.switch_prod_wrap > ol > li > div.prod_area.horizontal > div.prod_info_box'
   );
   const dataArr = [];
   const dataPath = './list.json';
-
+  let title, rank, src;
   list.each((idx,el) =>{
-    let title = $(el).find('a > span').text();
-    //let rank = $(el).find('div.prod_rank > div > span').text().split(" ").substring();
-    let src = $(el).find('a').attr('href');
+    if(idx ===0) {
+      rank = $(el).find('div.prod_rank > div > span > span').text();
+    } else {
+      rank = $(el).find('div.prod_rank > div > span').text().trim();
+    }
+    title = $(el).find('a > span').text();    
+    src = $(el).find('a').attr('href');
     console.log(rank);
     let data ={
       title:title,
@@ -47,9 +49,9 @@ async function main() {
       src:src
     };
     
-     dataArr.push(data);
-     fs.writeFileSync(dataPath, JSON.stringify(dataArr));
+    dataArr.push(data);
+    fs.writeFileSync(dataPath, JSON.stringify(dataArr));
   });
-
 }
+
 main();

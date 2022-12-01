@@ -1,3 +1,6 @@
+/**
+ * 모듈화 연습
+ */
 export default async function page() {
     const browser = await puppeteer.launch(); // ❶ 헤드리스 브라우저 실행
     const page = await browser.newPage();     // ❷ 브라우저에 새 페이지 생성

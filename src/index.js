@@ -18,6 +18,13 @@ async function main() {
   await page.click('#selListPer-button'); //콤보박스
   await page.click('#ui-id-39'); // 50개 영역 옵션 선택
   
+  // 연도 선택
+  // await page.click('#selListType');
+  // await page.click('#selListType-button');
+  // await page.click('#selListType-menu');
+
+  // await page.click('#selListType-menu > li:nth-child(4)');
+  //#selListType-menu
   await page.waitForSelector('#tabRoot > div.view_type_list.switch_prod_wrap > ol > li > div.prod_area.horizontal');
   // ➏ 특정 셀렉터에 대해 제공된 함수를 수행한 값 반환
 
@@ -26,14 +33,14 @@ async function main() {
   // 넘어오는 것 확인 내용은 log.txt
   await page.close();
   await browser.close();
-  // #tabRoot > div.view_type_list.switch_prod_wrap > ol:nth-child(1) > li:nth-child(1) > div.prod_area.horizontal > div.prod_info_box > a
+
   const $ = cheerio.load(body);
   const list = $(
     '#tabRoot > div.view_type_list.switch_prod_wrap > ol > li > div.prod_area.horizontal > div.prod_info_box'
   );
-  const dataArr = [];
-  const dataPath = './list.json';
-  let title, rank, src;
+  // const dataArr = [];
+  // const dataPath = './list.json';
+  let title, rank, grade,src;
   list.each((idx,el) =>{
     if(idx ===0) {
       rank = $(el).find('div.prod_rank > div > span > span').text();
@@ -42,15 +49,17 @@ async function main() {
     }
     title = $(el).find('a > span').text();    
     src = $(el).find('a').attr('href');
-    console.log(rank);
+    grade = $(el).find('div.prod_bottom > div > span.review_klover_box > span.review_klover_text.font_size_xxs').text();
+
     let data ={
       title:title,
       rank:rank,
+      grade:grade,
       src:src
     };
-    
-    dataArr.push(data);
-    fs.writeFileSync(dataPath, JSON.stringify(dataArr));
+    console.log(data);
+    // dataArr.push(data);
+    // fs.writeFileSync(dataPath, JSON.stringify(dataArr));
   });
 }
 

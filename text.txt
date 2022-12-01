@@ -4,3 +4,15 @@
 #tabRoot > div.view_type_list.switch_prod_wrap > ol:nth-child(1) > li:nth-child(1)
 
 #tabRoot > div.view_type_list.switch_prod_wrap > ol:nth-child(1) > li:nth-child(1) > div.prod_area.horizontal > div.prod_info_box > a
+
+#selListPer-button
+#ui-id-38
+연도 선택 박스
+#selListType-button
+#selListType-button
+연도 선택 2021
+#ui-id-52
+
+연도 선택 2020
+#selListType-menu > li:nth-child(3)
+#ui-id-53

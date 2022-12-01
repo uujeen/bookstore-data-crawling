@@ -16,6 +16,19 @@ review_연도.json {
 만약 배열에 안들어가져서 따로 json 파일을 만든다면 제목들과 어떻게 대응시킬 것 인가?
 
 -> URL을 타고 리뷰 데이터 수집 후 review_연도.json에 저장
+saleCmdtid -> 책시리얼넘버 URL 뒤에 삽입하고 책 리뷰접근 가능
+URL = "https://product.kyobobook.co.kr/detail/${saleCmdtid}"
+
+crawlingReview.js
+{
+    1. list_연도에서 list_${index} ++1 2017-2021까지
+    1-1. cmdtName 책 제목, saleCmdtid 책 시리얼 넘버, buyRevwNumc 총 리뷰 수, buyRevwRvgr 평점
+    2. url${saleCmdtid} 해당 책 구매 페이지 접근
+    2-1. 리뷰 페이지수 확인
+    2-2. 리뷰 페이지 수 까지 1부터 방문하며 리뷰텍스트, 클로버, 좋아요 수 수집
+    3. 책 제목 리뷰텍스트 클로버 좋아요 수 review_연도.json 파일 생성
+
+}
 
 2. json 파일 읽기
 2-1 src 컬럼을 읽고 해당 페이지 불러오기

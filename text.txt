@@ -16,3 +16,8 @@
 연도 선택 2020
 #selListType-menu > li:nth-child(3)
 #ui-id-53
+
+리뷰 
+#ReviewList1 > div.tab_wrap.type_sm > div.tab_content > div > div.comment_list > div:nth-child(1) > div.comment_contents > div > div > div > div
+#ReviewList1 > div.tab_wrap.type_sm > div.tab_content > div > div.comment_list > div:nth-child(2) > div.comment_contents > div > div > div > div
+#ReviewList1 > div.tab_wrap.type_sm > div.tab_content > div > div.comment_list > div:nth-child(1) > div.comment_contents > div > div > div > div

@@ -1,4 +1,5 @@
 # bookstore-data-crawling-analysis
+교보문고 베스트셀러 종합 책 리스트 및 리뷰 데이터 수집
 # Getting Started
 
 ## Installation
@@ -22,6 +23,8 @@ npm install axios@0.21.1 cheerio@1.0.0-rc.9 puppeteer@19.0.0 lodash@4.17.20 date
 - `lodash` : 자바스크립가 기본 제공하지 않는 다양한 유틸리티 함수를 모아둔 라이브러리입니다.
 
 - `date-fns`, `date-fns-tz` : 자바스크립트가 제공하는 `Date` 객체는 날짜/시간의 타임존 변환이나 원하는 날짜 형식으로 변환이 어렵습니다. 이를 해결해주는 라이브러리입니다.
+
+## API
 
 
 # 📝

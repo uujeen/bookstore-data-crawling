@@ -3,3 +3,5 @@ node_modules/
 # list, review data
 data/
 data-csv/
+# DS_store
+.DS_store
